@@ -3,8 +3,8 @@
 on charger
     # Might as well enable these. No suspend in
     # charging mode.
-    write /sys/module/sweep2wake/parameters/enable 1
-    write /sys/module/doubletap2wake/parameters/enable 1
+    write /sys/module/sweep2wake/parameters/enable 0
+    write /sys/module/doubletap2wake/parameters/enable 0
 
     # Needed for date/time in charging mode
     mkdir /data
@@ -15,19 +15,6 @@ on charger
 on post-fs
 
     # CodinalteParts
-    
-    chown system system /sys/module/doubletap2wake/parameters/use_wakelock
-    chmod 0660 /sys/module/doubletap2wake/parameters/use_waklock
-
-    chown system system /sys/module/doubletap2wake/parameters/enable
-    chmod 0660 /sys/module/doubletap2wake/parameters/enable
-
-    chown system system /sys/module/sweep2wake/parameters/use_wakelock
-    chmod 0660 /sys/module/sweep2wake/parameters/use_waklock
-
-    chown system system /sys/module/sweep2wake/parameters/enable
-    chmod 0660 /sys/module/sweep2wake/parameters/enable
-
     chown system system /sys/devices/virtual/misc/backlightnotification/enabled
     chmod 0660 /sys/devices/virtual/misc/backlightnotification/enabled
 
